@@ -1,0 +1,16 @@
+/* 
+ * AUTEUR: Fabien Meunier
+ * PROJECT: Third_Type_Tapes
+ * PATH: Third_Type_Tapes/css/
+ * NAME: print.css
+ */
+
+/*------------------------------------------------------------------------------gestionExemplaires------------------------------------------------------------------------*/
+header, nav, h1, article[class="centrer contenir research"], .tabExpl .noBorder, .tabExpl .copySel,.tabExpl input[type="radio"],.tabExpl input[type="checkbox"], .boutonFixed input, .boutonFixed img, .glyphicon, footer{
+    display: none;
+}
+
+.infoDate{
+    display: inline-block;
+    font-size: 1.2em;
+}

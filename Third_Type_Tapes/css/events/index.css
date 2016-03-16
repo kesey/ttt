@@ -1,0 +1,44 @@
+/* 
+ * AUTEUR: Fabien Meunier
+ * PROJECT: Third_Type_Tapes
+ * PATH: Third_Type_Tapes/css/events/
+ * NAME: index.css
+ */
+
+/**************************************************************************************************************************************************************************/
+/*------------------------------------------------------------------------------FRONT-------------------------------------------------------------------------------------*/
+/**************************************************************************************************************************************************************************/
+
+/*------------------------------------------------------------------------------events------------------------------------------------------------------------------------*/
+.flyer{
+    width: 145px;
+    height: auto;
+}
+
+.showInfosEvent{
+    width: 145px;
+    background: #000000;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+         
+.showInfosEvent img{
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+         
+.showInfosEvent:hover img{
+   -moz-transform: translate(145px, 0px);
+   -webkit-transform: translate(145px, 0px);
+   -o-transform: translate(145px, 0px);
+   -ms-transform: translate(145px, 0px);
+   transform: translate(145px, 0px);
+}
+

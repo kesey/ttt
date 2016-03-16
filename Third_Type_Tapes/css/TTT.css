@@ -1,0 +1,443 @@
+/* 
+ * AUTEUR: Fabien Meunier
+ * PROJECT: Third_Type_Tapes
+ * PATH: Third_Type_Tapes/css/
+ * NAME: TTT.css
+ */
+
+/*------------------------------------------------------------------------------general-----------------------------------------------------------------------------------*/
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #000000;
+    color: #dddddd;
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+body select{
+    color: #000000;
+}
+
+.ref{
+    visibility: hidden;
+    font-size: 1%;
+}
+
+.centrer{
+    margin: auto;
+}
+
+.contenir{
+    width: 60%;
+    max-width: 750px;
+}
+
+h4, label{
+    color: #f5f5f5;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.form-control{
+    width: 30%;
+    height: 32px;
+    min-width: 130px;
+}
+
+hr{
+    width: 62%;
+}
+
+.noUnderL:hover{
+    text-decoration: none;
+}
+
+.biggerText{
+   font-size: 1.2em;
+}
+
+/*typo des boutons previous et next*/
+span.biggerText {
+    font-family: 'Hammersmith One',sans-serif;
+}
+
+.biggerIcon{
+    font-size: 40px;
+    cursor: default;
+}
+
+.aimant{
+    position: fixed;
+    top: 94%;
+    cursor: pointer;
+}
+
+.vAlign{
+    vertical-align: top;
+    cursor: nw-resize;
+}
+
+.closeInfo{
+    float: right;
+}
+
+.closeInfo:hover{
+    cursor: pointer;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* pour IE */
+}
+
+.tAlign{
+    text-align: center;
+}
+
+a{
+    color: #adadad;
+}
+
+a:hover{
+    color: #737373;
+}
+
+label {
+    font-weight: 300;
+}
+/**************************************************************************************************************************************************************************/
+/*------------------------------------------------------------------------------FRONT-------------------------------------------------------------------------------------*/
+/**************************************************************************************************************************************************************************/
+
+/*------------------------------------------------------------------------------low resolutions---------------------------------------------------------------------------*/
+@media screen and (min-width: 1260px){
+    header{
+        width: 1250px;
+        margin: auto;
+        display:table;
+        table-layout: fixed;
+    }
+    header .newsLetter{
+        display:table-cell;
+        vertical-align: top;
+        width: 250px;
+    }
+    header a{
+        display:table-cell;
+        width: 750px;
+    }
+    header .logMod{
+        display:table-cell;
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 1260px){
+    header a img{
+        margin: auto;
+        display: block;
+    }
+    header{
+        width:100%;
+        display:table;
+    }
+    header .newsLetter{
+        display:table-header-group;
+        text-align: left;
+    }
+    header a{
+        display:table-footer-group;
+    }
+    header .logMod{
+        display:table-row-group;
+        text-align: left;
+    }
+}
+
+.wrapper{
+    width: 100%;
+    text-align: center;
+}
+/*------------------------------------------------------------------------------General-----------------------------------------------------------------------------------*/
+form{
+    text-align: left;
+}
+
+p[class=detail]{
+    display: inherit;
+}
+
+/*alignement à gauche des titres*/
+.wrapper > h4 {
+    text-align:left;
+}
+
+.detail{
+    color: #dddddd;
+    font-size: 0.9em;
+    font-family: 'Raleway', sans-serif;
+    display: inline-block;
+    width: 460px;
+    text-align: left;
+}
+/*------------------------------------------------------------------------------newsLetter--------------------------------------------------------------------------------*/
+#mc_embed_signup{
+    background: #000000;
+    font: 14px Helvetica,Arial,sans-serif;
+    /*font: 14px Hammersmith One,sans-serif;*/
+    color: #000000;
+    width: 250px;
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* réduction de la taille du sign up mailing list*/
+#mc_embed_signup input.email{
+    height: 25px;
+    padding: 2px 0;
+    width: 159px;
+}
+
+#mc_embed_signup label {
+    font-size: 12px;
+    padding-bottom: 0;
+}
+
+#mce-EMAIL {
+    font-size: 12px;
+}
+
+#mc_embed_signup input.button {
+    height: 25px;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.invisible{
+    visibility: hidden;
+}
+/*------------------------------------------------------------------------------log in------------------------------------------------------------------------------------*/
+#logView{
+    width: 250px;
+    display: inline-block;
+}
+
+.champsLog{
+    width: 100%;
+    height: 25px;
+    margin-left: 5px;
+}
+
+#submitLog{
+    height: 25px;
+    min-width: 90px;
+    width: 35%;
+    margin-left: 5px;
+    line-height: 12px;
+}
+
+.logIn{
+    background-color: #000000;
+    color: #333333;
+    border: none;
+    display: block;
+}
+
+.logIn:hover{
+    color: #dddddd;
+    cursor: pointer;
+}
+
+#infoLog{
+    min-width: 92px;
+}
+
+#infoLog, #jqInfoLog{
+    text-align: left;
+}
+
+.logMod{
+    width: 20%;
+    line-height: 10px;
+    text-align: right;
+    vertical-align: top;
+    display: inline-block;
+}
+
+#logOut {
+    line-height: 20px;
+}
+/*------------------------------------------------------------------------------menu--------------------------------------------------------------------------------------*/
+.menu{
+    color: #ffffff;
+}
+
+.menu:hover{
+    color: #eeeeee;
+}
+
+.menuGeneral{
+    text-align: center;
+}
+
+.menuGestionAdmin{
+    color: #cd0a0a;
+}
+
+.menuGestionAdmin:hover{
+    color: #cd0a0a;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* pour IE */
+}
+
+.location{
+    text-decoration: underline;
+}
+/*------------------------------------------------------------------------------images------------------------------------------------------------------------------------*/
+.detailImg{
+    width: 280px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: ne-resize;
+}
+
+@media screen and (max-width: 740px){
+    .detail{
+        margin-top: 5%;
+        width: 100%;
+    }
+    
+    .detailImg{
+        width: 100%;
+    }
+}
+
+.pochette{
+    width: 145px;
+    height: 145px;
+}
+
+.showInfos{
+    height: 145px;
+    width: 145px;
+    background: #000000;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+         
+.showInfos img{
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+         
+.showInfos:hover img{
+   -moz-transform: translate(0px, 145px);
+   -webkit-transform: translate(0px, 145px);
+   -o-transform: translate(0px, 145px);
+   -ms-transform: translate(0px, 145px);
+   transform: translate(0px, 145px);
+}
+/*------------------------------------------------------------------------------download----------------------------------------------------------------------------------*/
+.download{
+    width: 30%;
+    color: #adadad;
+}
+
+.downloadBtn{
+    background-color: #000000;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+.downloadBtn:hover{
+    color: #737373;
+}
+/**************************************************************************************************************************************************************************/
+/*------------------------------------------------------------------------------BACK--------------------------------------------------------------------------------------*/
+/**************************************************************************************************************************************************************************/
+
+/*------------------------------------------------------------------------------general-----------------------------------------------------------------------------------*/
+.fieldSel{
+    width: 100%;
+    max-width: 165px;
+    display: inline-block;
+}
+
+.trash{
+    color: #adadad;
+    cursor: default;
+}
+
+.adm{
+    color: #adadad;
+}
+
+input[value=submit], .logIn, .adm{
+    display: inline-block;
+}
+
+.adm:hover{
+    color: #737373;
+}
+
+input[value=Rechercher]{
+    font-size: 14px;
+}
+/*------------------------------------------------------------------------------input type file---------------------------------------------------------------------------*/
+.parcourir{
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 12px;
+    padding-right: 10px;
+    background-color: #337ab7;
+    color: #fff;
+    display: inline-block;
+}
+
+.parcourir:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* pour IE */
+}
+
+.clear_file{
+    height: 21px;
+    width: 78px;
+    color: #000000;
+    font-size: 12px;
+    font-family: arial;
+    border: none;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.clear_file:hover{
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* pour IE */
+}
+/*------------------------------------------------------------------------------position des input type file--------------------------------------------------------------*/
+.labImg{
+    width: 17%;
+}
+
+.imageGesEvt{
+    display: inline-block;
+    vertical-align: top;
+}
+
+

@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /gestionCassettes/
+Disallow: /gestionArtistes/
+Disallow: /gestionEvents/
+Disallow: /clients/
+Disallow: /exemplaires/
+Disallow: /admins/
