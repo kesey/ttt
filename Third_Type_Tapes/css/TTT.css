@@ -253,6 +253,7 @@ p[class=detail]{
 
 #infoLog{
     min-width: 92px;
+    line-height: 20px;
 }
 
 #infoLog, #jqInfoLog{
