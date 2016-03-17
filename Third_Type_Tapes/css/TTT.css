@@ -395,6 +395,10 @@ input[value=submit], .logIn, .adm{
 input[value=Rechercher]{
     font-size: 14px;
 }
+
+.wrapper .container > div:first-of-type, .wrapper .container hr + h4 {
+    text-align: left;
+}
 /*------------------------------------------------------------------------------input type file---------------------------------------------------------------------------*/
 .parcourir{
     -moz-border-radius: 4px;
