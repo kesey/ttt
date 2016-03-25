@@ -197,8 +197,7 @@ class Model{
     public function isImage($file){
         $imgOk = TRUE;
         $validTypes = array(IMAGETYPE_JPEG, IMAGETYPE_PNG);
-        $array= getImageSize($file);
-        $type= $array[2];
+        $type = @getImageSize($file)[2];
         if(!in_array($type, $validTypes)){
             $imgOk = FALSE;
         }
@@ -673,7 +672,7 @@ class Model{
             } else {
                 $chemin = ROOT.$dossier.'/'.$sousDoss.'/';
             }
-            if($dossier === 'images'){
+            if($this->isImage($fichierTemp)){
                 $resizeFileName = explode('.', $fichier);
                 $resizeFileName = $resizeFileName[0].'-resize.'.$resizeFileName[1];
                 // chemin pour stocker l'image redimmensionnée
@@ -703,7 +702,7 @@ class Model{
             $chemin = ROOT.$dossier.'/'.$sousDoss.'/';
         }
         if(file_exists($chemin)){
-            if($dossier === 'images'){
+            if($this->isImage($chemin.$fichier)){
                 $resizeFileName = explode('.', $fichier);
                 $resizeFileName = $resizeFileName[0].'-resize.'.$resizeFileName[1];
                 $resizedFilePath = $chemin.$resizeFileName;
