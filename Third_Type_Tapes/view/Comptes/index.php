@@ -3,7 +3,7 @@
 /*
  * AUTEUR: Fabien Meunier
  * PROJECT: Third_Type_Tapes
- * PATH: Third_Type_Tapes/view/Comptabilites/
+ * PATH: Third_Type_Tapes/view/Comptes/
  * NAME: index.php
  */
 
@@ -38,6 +38,7 @@
             <li><?php echo $vendus['ventes']; ?> exemplaire(s) a/ont été vendu(s).</li>
             <li><?php echo $depot['enDepot']; ?> exemplaire(s) est/sont en dépôt.</li>
             <li><?php echo $don['donnes']; ?> exemplaire(s) a/ont été donné(s).</li>
+            <li><?php echo $noStock['horsStock']; ?> exemplaire(s) est/sont hors stock.</li>
         </ul>
         <ul class="affInfos colInfos">
             <li>Nombre de téléchargement(s) total: <?php echo $infosCassettes['telechargement_total']; ?></li>

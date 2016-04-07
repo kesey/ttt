@@ -61,7 +61,7 @@ class Exemplaires extends Controller{
                                                                   "conditions" => "id_vendeur = ".$id." AND frais_de_port_rembourses = 0 AND id_cassette = ".$this->data['id_cassette']));
         $d['compta'][$who]['recupere'] = $d['compta'][$who]['recupere'][0];
         $d['compta'][$who]['doit'] = $this->$model->findAll(array("fields" => "SUM(prix_vente_euros) AS somme",
-                                                              "conditions" => "id_vendeur = ".$id." AND vente_remboursee = 0 AND id_cassette = ".$this->data['id_cassette']));
+                                                              "conditions" => "id_vendeur = ".$id." AND vente_remboursee = 0 AND (montant_frais_de_port = 0 OR montant_frais_de_port IS NULL) AND id_cassette = ".$this->data['id_cassette']));
         $d['compta'][$who]['doit'] = $d['compta'][$who]['doit'][0];
         return $d['compta'][$who];
     }
@@ -90,9 +90,12 @@ class Exemplaires extends Controller{
                                                    "conditions" => "id_etat = 4 AND id_cassette = ".$this->data['id_cassette']));
             $d['depot'] = $d['depot'][0];
             $d['don'] = $this->$model->findAll(array("fields" => "COUNT(id_etat) AS donnes",
-                                                 "conditions" => "id_cassette = ".$this->data['id_cassette']." AND (id_etat = 3 OR id_etat = 5)"));
+                                                 "conditions" => "id_etat = 5 AND id_cassette = ".$this->data['id_cassette']));
             $d['don'] = $d['don'][0];
-            $d['vendus'] = NBRE_EX - $d['stock']['enStock'] - $d['depot']['enDepot'] - $d['don']['donnes'];
+            $d['noStock'] = $this->$model->findAll(array("fields" => "COUNT(id_etat) AS horsStock",
+                                                 "conditions" => "id_etat = 3 AND id_cassette = ".$this->data['id_cassette']));
+            $d['noStock'] = $d['noStock'][0];
+            $d['vendus'] = NBRE_EX - ($d['stock']['enStock'] + $d['depot']['enDepot'] + $d['don']['donnes'] + $d['noStock']['horsStock']);
         /*----------------------------------------------------------------------compta general---------------------------------------------------------------------------------------------------------------*/        
             $d['total'] = $this->$model->findAll(array("fields" => "SUM(prix_vente_euros) AS somme",
                                                    "conditions" => "id_etat = 2 AND id_cassette = ".$this->data['id_cassette']));

@@ -95,6 +95,7 @@
                     <li><?php echo $vendus; ?> exemplaire(s) a/ont été vendu(s).</li>
                     <li><?php echo $depot['enDepot']; ?> exemplaire(s) est/sont en dépôt.</li>
                     <li><?php echo $don['donnes']; ?> exemplaire(s) a/ont été donné(s).</li>
+                    <li><?php echo $noStock['horsStock']; ?> exemplaire(s) est/sont hors stock.</li>
                 </ul>
                 <ul class="affInfos colInfos" >
                     <?php foreach($ventes as $who => $value){ ?>

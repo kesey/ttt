@@ -24,7 +24,7 @@ class Comptes extends Controller{
                                                                   "conditions" => "id_vendeur = ".$id." AND frais_de_port_rembourses = 0"));
         $d['compta'][$who]['recupere'] = $d['compta'][$who]['recupere'][0];
         $d['compta'][$who]['doit'] = $this->$model->findAll(array("fields" => "SUM(prix_vente_euros) AS somme",
-                                                              "conditions" => "id_vendeur = ".$id." AND vente_remboursee = 0"));
+                                                              "conditions" => "id_vendeur = ".$id." AND vente_remboursee = 0 AND (montant_frais_de_port = 0 OR montant_frais_de_port IS NULL)"));
         $d['compta'][$who]['doit'] = $d['compta'][$who]['doit'][0];
         return $d['compta'][$who];
     }
@@ -51,12 +51,14 @@ class Comptes extends Controller{
                                                "conditions" => "id_etat = 4"));
         $d['depot'] = $d['depot'][0];
         $d['don'] = $this->$model->findAll(array("fields" => "COUNT(id_etat) AS donnes",
-                                             "conditions" => "id_etat = 3 OR id_etat = 5"));
+                                             "conditions" => "id_etat = 5"));
         $d['don'] = $d['don'][0];
+        $d['noStock'] = $this->$model->findAll(array("fields" => "COUNT(id_etat) AS horsStock",
+                                                 "conditions" => "id_etat = 3"));
+        $d['noStock'] = $d['noStock'][0];
         $d['vendus'] = $this->$model->findAll(array("fields" => "COUNT(id_etat) AS ventes",
                                                 "conditions" => "id_etat = 2"));
         $d['vendus'] = $d['vendus'][0];
-
     /*----------------------------------------------------------------------compta general---------------------------------------------------------------------------------------------------------------*/
         $d['infosCassettes'] = $this->$modelCass->findAll(array("fields" => "SUM(nombre_de_download) AS telechargement_total"));
         $d['infosCassettes'] = $d['infosCassettes'][0];
