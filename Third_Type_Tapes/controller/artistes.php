@@ -31,28 +31,22 @@ class Artistes extends Controller{
     public function view($id){
         $model = $this->models[0];
         if($this->$model->exist('id_'.$model,$id)){
-            $d['artistes'] = $this->$model->getAllInfos(array('id' => $id));
+            $d['artiste'] = $this->$model->getAllInfos(array('id' => $id));
             $this->set($d);            
-            $i['id']['min'] = $this->$model->getIdMaxMin("MIN")["min"];
-            $i['id']['max'] = $this->$model->getIdMaxMin("MAX")["max"];
+            $i['id']['min'] = $this->$model->getDataMaxMin("id_artiste", "MIN")["min"];
+            $i['id']['max'] = $this->$model->getDataMaxMin("id_artiste", "MAX")["max"];
             $this->set($i);
             if($id > $i['id']['min']){
-                $sous = -1;
-                do {
-                    $idPrev = $id + $sous;
-                    $dPrev['artPrev'] = $this->$model->getAllInfos(array('id' => $idPrev));
-                    $sous -= 1;
-                } while(!$dPrev['artPrev']); 
+                $dPrev['artPrev'] = $this->$model->getAllInfos(array("conditions" => $model.".id_artiste < ".$d['artiste'][0]['id_artiste'],
+                                                                      "order" => "id_artiste DESC",
+                                                                      "limit" => 1));
                 $dPrev['artPrev'] = $dPrev['artPrev'][0];
                 $this->set($dPrev);
             }
             if($id < $i['id']['max']){
-                $add = 1;
-                do {
-                    $idNext = $id + $add;
-                    $dNext['artNext'] = $this->$model->getAllInfos(array('id' => $idNext));
-                    $add += 1;
-                } while(!$dNext['artNext']);
+                $dNext['artNext'] = $this->$model->getAllInfos(array("conditions" => $model.".id_artiste > ".$d['artiste'][0]['id_artiste'],
+                                                                      "order" => "id_artiste ASC",
+                                                                      "limit" => 1));
                 $dNext['artNext'] = $dNext['artNext'][0];
                 $this->set($dNext);
             }

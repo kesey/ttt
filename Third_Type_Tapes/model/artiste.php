@@ -20,19 +20,33 @@ class Artiste extends Model{
     **/  
     public function getAllInfos($data = array()) {
         global $db;
-        $condition = "1 = 1";
+        $conditions = "1 = 1";
         if(isset($data['id'])){
             $id = $this->securite_bdd($data['id']);
-            $condition = $this->table.".id_".$this->table." = :id";
+            $conditions = $this->table.".id_".$this->table." = :id";
+        } else if(isset($data['conditions'])){
+            $conditions = $this->securite_bdd($data['conditions']);
         }
         $group = "";
         if(isset($data['groupBy'])){
             $group = $this->securite_bdd($data['groupBy']);
-            $group = "GROUP BY ".$this->table.".".$group;
+            $group = " GROUP BY ".$this->table.".".$group;
         }
-        $sql = "SELECT * FROM ".$this->table." INNER JOIN produire ON ".$this->table.".id_".$this->table." = produire.id_".$this->table." INNER JOIN cassette ON produire.id_cassette = cassette.id_cassette WHERE ".$this->table.".".$this->notArchive." AND cassette.".$this->notArchive." AND ".$condition." ".$group." ORDER BY ".$this->table.".id_artiste DESC";
+        $order = " ORDER BY ".$this->table.".id_artiste DESC";
+        if(isset($data['order'])){
+            $order = $this->securite_bdd($data['order']);
+            $order = " ORDER BY ".$this->table.".".$order;
+        }
+        $limit = "";
+        if(isset($data['limit'])){
+            $limit = $this->securite_bdd($data['limit']);
+            $limit = " LIMIT ".$limit;
+        }
+        $sql = "SELECT * FROM ".$this->table." INNER JOIN produire ON ".$this->table.".id_".$this->table." = produire.id_".$this->table." INNER JOIN cassette ON produire.id_cassette = cassette.id_cassette WHERE ".$this->table.".".$this->notArchive." AND cassette.".$this->notArchive." AND ".$conditions.$group.$order.$limit;
         $pdoObj = $db->prepare($sql);
-        $pdoObj->bindParam(':id', $id, PDO::PARAM_INT);
+        if(isset($id)){
+            $pdoObj->bindParam(':id', $id, PDO::PARAM_INT);
+        }
         $success = $pdoObj->execute();
         if($success){
             $tabFind = array();

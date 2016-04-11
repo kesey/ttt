@@ -324,7 +324,7 @@ class Model{
             $order = $this->securite_bdd($data['order']);
         }
         if(isset($data["limit"])){
-            $limit = $this->securite_bdd($data['order']);
+            $limit = $this->securite_bdd($data['limit']);
             $limit = " LIMIT ".$limit;
         }        
         $sql = "SELECT ".$fields." FROM ".$this->table." WHERE ".$conditions." AND ".$this->notArchive." ORDER BY ".$order.$limit;
@@ -484,23 +484,27 @@ class Model{
         }
     }   
    /**
-    *  récupére l'id maximum/minimum pour la table instanciée
-    *  @param string $maxMin permet de spécifier ce que l'on décide de récupérer, l'id max ou l'id min
+    *  récupére la valeur maximum/minimum pour la colonne choisie de la table instanciée
+    *  @param string $col permet de spécifier la colonne désirée
+    *  @param string $maxMin permet de spécifier ce que l'on décide de récupérer, la valeur max ou la valeur min
     **/
-    public function getIdMaxMin($maxMin = "MAX"){
+    public function getDataMaxMin($col = NULL, $maxMin = "MAX"){
         global $db;
         $alias = "max";
+        if(!$col){
+            $col = "id_".$this->table;
+        }
         if($maxMin !== "MAX"){
             $maxMin = "MIN";
             $alias = "min";
         }
-        $sql = "SELECT ".$maxMin."(id_".$this->table.") AS ".$alias." FROM ".$this->table." WHERE ".$this->notArchive;
+        $sql = "SELECT ".$maxMin."(".$col.") AS ".$alias." FROM ".$this->table." WHERE ".$this->notArchive;
         $pdoObj = $db->prepare($sql);
         $success = $pdoObj->execute();
         if($success){
-            $idMaxMin = $pdoObj->fetch();
+            $colMaxMin = $pdoObj->fetch();
             $pdoObj->closeCursor();
-            return $idMaxMin;
+            return $colMaxMin;
         } else {
             return FALSE;
         }

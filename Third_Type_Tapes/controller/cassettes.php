@@ -31,30 +31,24 @@ class Cassettes extends Controller{
     public function view($id){
         $model = $this->models[0];
         if($this->$model->exist('id_'.$model,$id)){
-            $d['cassettes'] = $this->$model->getAllInfos(array('id' => $id));
+            $d['cassette'] = $this->$model->getAllInfos(array('id' => $id));
             $this->set($d);            
             $s['shipInfos'] = $this->frais_de_port->findAll();
             $this->set($s);
-            $i['id']['min'] = $this->$model->getIdMaxMin("MIN")["min"];
-            $i['id']['max'] = $this->$model->getIdMaxMin("MAX")["max"];
+            $i['date']['min'] = $this->$model->getDataMaxMin("date_sortie", "MIN")["min"];
+            $i['date']['max'] = $this->$model->getDataMaxMin("date_sortie", "MAX")["max"];
             $this->set($i);
-            if($id > $i['id']['min']){
-                $sous = -1;
-                do {
-                    $idPrev = $id + $sous;
-                    $dPrev['cassPrev'] = $this->$model->getAllInfos(array('id' => $idPrev));
-                    $sous -= 1;
-                } while(!$dPrev['cassPrev']);
+            if($d['cassette'][0]['date_sortie'] > $i['date']['min']){
+                $dPrev['cassPrev'] = $this->$model->getAllInfos(array("conditions" => $model.".date_sortie <= '".$d['cassette'][0]['date_sortie']."' AND ".$model.".id_".$model." != ".$id,
+                                                                      "order" => "date_sortie DESC, ".$model.".id_".$model." DESC",
+                                                                      "limit" => 1));
                 $dPrev['cassPrev'] = $dPrev['cassPrev'][0];
                 $this->set($dPrev);
             }
-            if($id < $i['id']['max']){
-                $add = 1;
-                do {
-                    $idNext = $id + $add;
-                    $dNext['cassNext'] = $this->$model->getAllInfos(array('id' => $idNext));
-                    $add += 1;
-                } while(!$dNext['cassNext']);                
+            if($d['cassette'][0]['date_sortie'] < $i['date']['max']){
+                $dNext['cassNext'] = $this->$model->getAllInfos(array("conditions" => $model.".date_sortie >= '".$d['cassette'][0]['date_sortie']."' AND ".$model.".id_".$model." != ".$id,
+                                                                      "order" => "date_sortie ASC, ".$model.".id_".$model." ASC",
+                                                                      "limit" => 1));                
                 $dNext['cassNext'] = $dNext['cassNext'][0];
                 $this->set($dNext);
             }

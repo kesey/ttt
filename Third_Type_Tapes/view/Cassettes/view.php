@@ -9,18 +9,18 @@
 
 ?>
 <br/>
-<h4><?php echo $cassettes[0]['code']; ?> // <?php foreach($cassettes as $value){ echo $value['nom']." "; } ?> // <?php echo $cassettes[0]['titre']; ?></h4>
-    <img class="detailImg zoom" src="<?php echo WEBROOT; ?>images/cassette/<?php echo $cassettes[0]['image_pochette']; ?>" title="image_pochette" alt="<?php echo $cassettes[0]['titre']; ?>" >
-    <span class="detail" ><?php echo nl2br($cassettes[0]['description']); ?></span>
+<h4><?php echo $cassette[0]['code']; ?> // <?php foreach($cassette as $value){ echo $value['nom']." "; } ?> // <?php echo $cassette[0]['titre']; ?></h4>
+    <img class="detailImg zoom" src="<?php echo WEBROOT; ?>images/cassette/<?php echo $cassette[0]['image_pochette']; ?>" title="image_pochette" alt="<?php echo $cassette[0]['titre']; ?>" >
+    <span class="detail" ><?php echo nl2br($cassette[0]['description']); ?></span>
 <br/><br/>
-<?php if(!$cassettes[0]['sold_out']){ ?>
+<?php if(!$cassette[0]['sold_out']){ ?>
 <!------------------------------------------------------------------------------bouton paiement paypal----------------------------------------------------------------------------------------------------------------------------------------------------------->
     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="business" value="W5BGTPVHQ5A7S">
         <input type="hidden" name="lc" value="US">
         <input type="hidden" name="item_name" value="ajout panier">
-        <input type="hidden" name="item_number" value="<?php echo $cassettes[0]['code']; ?> // <?php foreach($cassettes as $value){ echo $value['nom']." "; } ?> // <?php echo $cassettes[0]['titre']; ?>">
+        <input type="hidden" name="item_number" value="<?php echo $cassette[0]['code']; ?> // <?php foreach($cassette as $value){ echo $value['nom']." "; } ?> // <?php echo $cassette[0]['titre']; ?>">
         <input type="hidden" name="button_subtype" value="products">
         <input type="hidden" name="currency_code" value="EUR">
         <input type="hidden" name="add" value="1">
@@ -77,11 +77,11 @@
 <?php } ?>
 <br/><br/>
 <!------------------------------------------------------------------------------bouton de telechargement--------------------------------------------------------------------------------------------------------------------------------------------------------->
-<?php if($cassettes[0]['download'] && $cassettes[0]['sold_out']){ ?>
+<?php if($cassette[0]['download'] && $cassette[0]['sold_out']){ ?>
     <form action="#" method="POST" enctype="multipart/form-data" class="download" > 
         <span aria-hidden="true" class="glyphicon glyphicon-download-alt biggerIcon"></span>
         <input type="submit" value="free download" class="downloadBtn biggerText" >
-        <input type="hidden" name="nomFichier" value="<?php echo $cassettes[0]['download']; ?>" >
+        <input type="hidden" name="nomFichier" value="<?php echo $cassette[0]['download']; ?>" >
         <input type="hidden" name="action" value="download" >
     </form>
     <br/>
@@ -95,17 +95,17 @@
 </form>
 <br/>
 <!------------------------------------------------------------------------------lien soundcloud------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-<?php if($cassettes[0]['lien_soundcloud']){ ?>
-    <iframe width="100%" height="166" scrolling="no" frameborder="no" src="<?php echo $cassettes[0]['lien_soundcloud']; ?>"></iframe>
+<?php if($cassette[0]['lien_soundcloud']){ ?>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" src="<?php echo $cassette[0]['lien_soundcloud']; ?>"></iframe>
     <br/><br/>
 <?php } ?>
 <!------------------------------------------------------------------------------lien youtube (si il existe)------------------------------------------------------------------------------------------------------------------------------------------------------>
-<?php if($cassettes[0]['lien_youtube']){ ?>
-    <iframe width="100%" height="315" src="<?php echo $cassettes[0]['lien_youtube']; ?>" frameborder="1" allowfullscreen></iframe>
+<?php if($cassette[0]['lien_youtube']){ ?>
+    <iframe width="100%" height="315" src="<?php echo $cassette[0]['lien_youtube']; ?>" frameborder="1" allowfullscreen></iframe>
 <?php } ?>
 <br/><br/>
 <!------------------------------------------------------------------------------artiste(s) ayant produit(s) cette release---------------------------------------------------------------------------------------------------------------------------------------->
-<?php foreach($cassettes as $value){ ?>
+<?php foreach($cassette as $value){ ?>
     <a class="noUnderL" href="<?php echo WEBROOT; ?>artistes/view/<?php echo $value['id_artiste']; ?>/<?php echo $value['nom']; ?>" >
         <div class="showInfos" >
             <img class="pochette" src="<?php echo WEBROOT; ?>images/artiste/<?php echo $value['image_artiste']; ?>" title="image_artiste" alt="<?php echo $value['nom']; ?>" >
@@ -115,13 +115,13 @@
 <?php } ?>
 <br/><br/>
 <!------------------------------------------------------------------------------navigation (previous/next)------------------------------------------------------------------------------------------------------------------------------------------------------->
-<?php if($cassettes[0]['id_cassette'] > $id['min']){ ?>
+<?php if($cassette[0]['date_sortie'] > $date['min']){ ?>
     <a class="glyphicon glyphicon-menu-left noUnderL biggerText" aria-hidden="true" href="<?php echo WEBROOT; ?>cassettes/view/<?php echo $cassPrev['id_cassette']; ?>/<?php echo $cassPrev['code']; ?>/<?php echo $cassPrev['nom']; ?>/<?php echo $cassPrev['titre']; ?>" >
         <span class="glyphicon-class biggerText">previous</span>
     </a>
     <br/><br/>
 <?php } ?>
-<?php if($cassettes[0]['id_cassette'] < $id['max']){ ?>
+<?php if($cassette[0]['date_sortie'] < $date['max']){ ?>
     <a class="glyphicon glyphicon-menu-right noUnderL biggerText" aria-hidden="true" href="<?php echo WEBROOT; ?>cassettes/view/<?php echo $cassNext['id_cassette']; ?>/<?php echo $cassNext['code']; ?>/<?php echo $cassNext['nom']; ?>/<?php echo $cassNext['titre']; ?>" >
         <span class="glyphicon-class biggerText">next</span>       
     </a>
