@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /* 
  * AUTEUR: Fabien Meunier
@@ -152,7 +152,7 @@ class Exemplaires extends Controller{
                 $this->$model->save($data[$k]);
             }
             $nbreExDispo = $this->$model->findAll(array("fields" => "COUNT(id_etat) AS dispo",
-                                                    "conditions" => "id_etat = 1"));           
+                                                    "conditions" => "id_etat = 1 AND id_".$modelCass." = ".$idCass));
             if($nbreExDispo[0]['dispo'] != 0){
                 $dispo = array("id_cassette" => $idCass,
                                   "sold_out" => 0);

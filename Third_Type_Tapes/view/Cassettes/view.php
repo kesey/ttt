@@ -62,11 +62,12 @@
         <br/>
         <?php } ?>
     </p>
-    <p class="detail" >
+    <br/>
+    <!--<p class="detail" >
         <em>For shipping discount,<br/> 
             please send your order by mail : thirdtypetapes@gmail.com
         </em>
-    </p>
+    </p>-->
 <?php } else { ?>
 <!------------------------------------------------------------------------------release en rupture de stock------------------------------------------------------------------------------------------------------------------------------------------------------>
     <p class="detail" >
@@ -75,7 +76,14 @@
         But you can help your devoted aliens by clicking on the donation button :            
     </p>
 <?php } ?>
-<br/><br/>
+<!------------------------------------------------------------------------------bouton donation paypal----------------------------------------------------------------------------------------------------------------------------------------------------------->
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHLwYJKoZIhvcNAQcEoIIHIDCCBxwCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCG7k97bwnOibZBk5eY3QH2oHjvIeK6O2H+VWSB7UfTRI2OMWlZkSpU+IfVcu6h7mnzWQXaEPzD953ZhiCYqgxpdUv2c9wB/DHTHZH9neMfEXF5JQzthUkeTOPSxBsyBWU70iPiorKMawlaomCu/wjoKCAPZtmOUxF5ccBh0U9hUzELMAkGBSsOAwIaBQAwgawGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIwfRJlXE+HB+AgYiiYU7b1AGIx+kI3FMtXATYHSocQoJt6Az7RhmQaguF/NJGBPdxNDCKaCQ+P4NrmdSNaC4uwXKoPzVk0HOtzXj9ex8D+5MXN1V7UuYG8wfbB0Bh1SNoBiwrzxvRo8s3EGCq2twvB2DUdWiMG4ZQAUGBG2AbgVvOnP/qhYfwd88Rc79GE917qfVHoIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMTUwNDA3MTgwNjI2WjAjBgkqhkiG9w0BCQQxFgQUdwSGJCaEuI4H1t2YP5ZqecGFVLYwDQYJKoZIhvcNAQEBBQAEgYC1lDhGn6jRX8Z2KTmZzYlWP9SQqQF+tXABa7hltlgwKVCD+nTSfgDkByhi1z2eOG3Wn9iRiBbFMpc2TU0oonOHUydgmcOeWLCeCDhfSjGlLJ1sm25cTQqV7y8XPuY709Onr0yd9RMrsOrrJuUVv6lPMR3JjKG3GIr6nslAZq+/wQ==-----END PKCS7-----">
+    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/fr_XC/i/scr/pixel.gif" width="1" height="1">
+</form>
+<br/>
 <!------------------------------------------------------------------------------bouton de telechargement--------------------------------------------------------------------------------------------------------------------------------------------------------->
 <?php if($cassette[0]['download'] && $cassette[0]['sold_out']){ ?>
     <form action="#" method="POST" enctype="multipart/form-data" class="download" > 
@@ -86,14 +94,6 @@
     </form>
     <br/>
 <?php } ?>
-<!------------------------------------------------------------------------------bouton donation paypal----------------------------------------------------------------------------------------------------------------------------------------------------------->
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">    
-    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-    <img alt="" border="0" src="https://www.paypalobjects.com/fr_XC/i/scr/pixel.gif" width="1" height="1">
-</form>
-<br/>
 <!------------------------------------------------------------------------------lien soundcloud------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 <?php if($cassette[0]['lien_soundcloud']){ ?>
     <iframe width="100%" height="166" scrolling="no" frameborder="no" src="<?php echo $cassette[0]['lien_soundcloud']; ?>"></iframe>
