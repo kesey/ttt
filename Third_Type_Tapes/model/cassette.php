@@ -15,12 +15,16 @@ class Cassette extends Model{
     var $notArchive = "suppr != 1";
     
    /**
-    *  récupération infos cassette(s) et artiste(s)
-    *  @param array $data contient l'id et le nom de la colonne sur laquelle on fait le GROUP BY  
+    *  récupération infos cassette et artiste(s)
+    *  @param array $data contient les champs, les conditions, le group by, l'ordre et la limitation
     **/  
     public function getAllInfos($data = array()){
         global $db;
+        $fields = "*";
         $conditions = "1 = 1";
+        if(isset($data["fields"])){
+            $fields = $this->securite_bdd($data['fields']);
+        }
         if(isset($data['id'])){
             $id = $this->securite_bdd($data['id']);
             $conditions = $this->table.".id_".$this->table." = :id";
@@ -42,7 +46,7 @@ class Cassette extends Model{
             $limit = $this->securite_bdd($data['limit']);
             $limit = " LIMIT ".$limit;
         }
-        $sql = "SELECT * FROM ".$this->table." INNER JOIN produire ON ".$this->table.".id_".$this->table." = produire.id_".$this->table." INNER JOIN artiste ON produire.id_artiste = artiste.id_artiste WHERE ".$this->table.".".$this->notArchive." AND artiste.".$this->notArchive." AND ".$conditions.$group.$order.$limit;
+        $sql = "SELECT ".$fields." FROM ".$this->table." INNER JOIN produire ON ".$this->table.".id_".$this->table." = produire.id_".$this->table." INNER JOIN artiste ON produire.id_artiste = artiste.id_artiste WHERE ".$this->table.".".$this->notArchive." AND artiste.".$this->notArchive." AND ".$conditions.$group.$order.$limit;
         $pdoObj = $db->prepare($sql);
         if(isset($id)){
             $pdoObj->bindParam(':id', $id, PDO::PARAM_INT);

@@ -15,6 +15,7 @@ class Cassettes extends Controller{
     public function index(){
         $model = $this->models[0];
         $d['cassettes'] = $this->$model->getAllInfos(array('groupBy' => "id_".$model));
+        $d['artistes'] = $this->$model->getAllInfos(array('fields' => "artiste.nom, cassette.id_cassette"));
         $length = sizeof($d['cassettes']);
         for ($i = 0; $i < $length; $i++) {
             $imgResize = explode('.', $d['cassettes'][$i]['image_pochette']);

@@ -16,7 +16,7 @@ class Artiste extends Model{
     
    /**
     *  récupération infos cassette(s) et artiste(s)
-    *  @param array $data contient l'id et le nom de la colonne sur laquelle on fait le GROUP BY  
+    *  @param array $data contient les conditions, le group by, l'ordre et la limitation
     **/  
     public function getAllInfos($data = array()) {
         global $db;
