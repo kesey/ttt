@@ -9,11 +9,12 @@
 
 session_start();
 try{
-    $db = new PDO("mysql:host=localhost;dbname=thirdtypetapes", "ttt", "password", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $db = new PDO("mysql:host=localhost;dbname=thirdtypetapes", "root", "", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $db->exec('SET sql_mode=""');
 }
 catch(Exception $e){
     die('Error : '.$e->getMessage());
 }
 
-require("core/model.php");
+require_once("core/model.php");
 

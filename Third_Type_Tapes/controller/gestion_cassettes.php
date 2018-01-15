@@ -43,6 +43,7 @@ class Gestion_cassettes extends Controller{
             $d['detailsCass']['code'] = $this->$model->code;
             $d['detailsCass']['longueur'] = $this->$model->longueur;
             $d['detailsCass']['prix'] = $this->$model->prix;
+            $d['detailsCass']['lien_bandcamp'] = $this->$model->lien_bandcamp;
             $d['detailsCass']['lien_soundcloud'] = $this->$model->lien_soundcloud;
             $d['detailsCass']['lien_youtube'] = $this->$model->lien_youtube;
             $d['detailsCass']['description'] = $this->$model->description;

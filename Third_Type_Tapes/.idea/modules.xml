@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Third_Type_Tapes.iml" filepath="$PROJECT_DIR$/.idea/Third_Type_Tapes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/thirdtypetapes.iml" filepath="$PROJECT_DIR$/.idea/thirdtypetapes.iml" />
     </modules>
   </component>
 </project>

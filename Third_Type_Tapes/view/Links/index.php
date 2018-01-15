@@ -18,11 +18,10 @@
         <a class="noUnderL" href="http://cuttingroomrecords.blogspot.co.uk/" target="_blank" ><li>Cutting Rooms records</li></a>
         <a class="noUnderL" href="http://www.bedroomresearch.com/" target="_blank" ><li>Bedroom Research</li></a>
         <a class="noUnderL" href="http://andestapes.tumblr.com/" target="_blank" ><li>Andesground</li></a>
-        <a class="noUnderL" href="http://www.uzusounds.com/" target="_blank" ><li>Uzusounds</li></a>
+        <a class="noUnderL" href="https://soundcloud.com/voyder" target="_blank" ><li>Voyder</li></a>
         <a class="noUnderL" href="http://musikmekanik.free.fr/index.php?option=com_content&view=article&id=101&Itemid=52" target="_blank" ><li>MMC</li></a>
-        <a class="noUnderL" href="http://www.serendip-arts.org/" target="_blank" ><li>Serendip Festival</li></a>
-        <a class="noUnderL" href="http://www.cccpu.net" target="_blank" ><li>CCCPu</li></a>
-        <a class="noUnderL" href="http://www.discogs.com/label/461407-Thirdtypetapes" target="_blank" ><li>Discogs TTT</li></a>
+        <a class="noUnderL" href="http://www.serendip-lab.org/" target="_blank" ><li>Serendip Festival</li></a>
+        <a class="noUnderL" href="https://www.facebook.com/CCCPu" target="_blank" ><li>CCCPu</li></a>
     </ul>
 </div>
 <!------------------------------------------------------------------------------lien vers chaque artiste présent en base de données-------------------------------------------------------------------------------------------->

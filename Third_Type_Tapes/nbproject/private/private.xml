@@ -3,9 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/model/client.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/controller/labels.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/model/event.php</file>
             <file>file:/C:/wamp/www/Third_Type_Tapes/view/header.php</file>
-            <file>file:/C:/wamp/www/Third_Type_Tapes/css/allCss.min.css</file>
-            <file>file:/C:/wamp/www/Third_Type_Tapes/view/footer.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/model/produire.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/model/exemplaire.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/model/cassette.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/model/admin.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/index.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/controller/cassettes.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/controller/admins.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/core/controller.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/css/TTT.css</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/model/artiste.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/core/model.php</file>
+            <file>file:/C:/wamp/www/Third_Type_Tapes/model/contact.php</file>
         </group>
     </open-files>
 </project-private>

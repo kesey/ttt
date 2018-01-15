@@ -30,6 +30,7 @@
                 $code = $detailsCass["code"];
                 $longueur = $detailsCass["longueur"];
                 $prix = $detailsCass["prix"];
+                $lienBandcamp = $detailsCass["lien_bandcamp"];
                 $lienSoundcloud = $detailsCass["lien_soundcloud"];
                 $lienYoutube = $detailsCass["lien_youtube"];
                 $description = $detailsCass["description"];
@@ -37,7 +38,7 @@
                 $image = $detailsCass["image_pochette"];
                 $nbreDownload = $detailsCass["nombre_de_download"];
             } else {
-                $id = $titre = $dateSortie = $code = $longueur = $prix = $lienSoundcloud = $lienYoutube = $description = $download = $image = "";
+                $id = $titre = $dateSortie = $code = $longueur = $prix = $lienBandcamp = $lienSoundcloud = $lienYoutube = $description = $download = $image = "";
                 $nbreDownload = 0;
             }
             ?>
@@ -57,6 +58,9 @@
             </div><br/>
             <div class="row" >
                 <label class="col-md-2" for="idPrix" >Prix:&nbsp;</label><div class="col-md-10" ><input type="text" class="form-control" id="idPrix" name="prix" placeholder="5.00" value="<?php echo $prix; ?>" ></div>
+            </div><br/>
+            <div class="row" >
+                <label class="col-md-2" for="idBandcamp" >Lien bandcamp:&nbsp;</label><div class="col-md-10" ><input type="url" class="form-control" id="idBandcamp" name="lien_bandcamp" placeholder="http(s)://xxx" value="<?php echo $lienBandcamp; ?>" ></div>
             </div><br/>
             <div class="row" >
                 <label class="col-md-2" for="idSoundcloud" >Lien soundcloud:&nbsp;</label><div class="col-md-10" ><input type="url" class="form-control" id="idSoundcloud" name="lien_soundcloud" placeholder="http(s)://xxx" value="<?php echo $lienSoundcloud; ?>" ></div>

@@ -85,17 +85,26 @@
 </form>
 <br/>
 <!------------------------------------------------------------------------------bouton de telechargement--------------------------------------------------------------------------------------------------------------------------------------------------------->
-<?php if($cassette[0]['download'] && $cassette[0]['sold_out']){ ?>
+<?php /*if($cassette[0]['download'] && $cassette[0]['sold_out']){ */?><!--
     <form action="#" method="POST" enctype="multipart/form-data" class="download" > 
         <span aria-hidden="true" class="glyphicon glyphicon-download-alt biggerIcon"></span>
         <input type="submit" value="free download" class="downloadBtn biggerText" >
-        <input type="hidden" name="nomFichier" value="<?php echo $cassette[0]['download']; ?>" >
+        <input type="hidden" name="nomFichier" value="<?php /*echo $cassette[0]['download']; */?>" >
         <input type="hidden" name="action" value="download" >
     </form>
     <br/>
+--><?php /*} */?>
+<!------------------------------------------------------------------------------lien bandcamp (si il existe)---------------------------------------------------------------------------------------------------------------------------------------------------->
+<?php if($cassette[0]['lien_bandcamp']){ ?>
+    <iframe class="bandcampPlayer" style="border: 0; width: 100%; height: 120px;" src="<?php echo $cassette[0]['lien_bandcamp']; ?>" seamless>
+        <a href="https://thirdtypetapes.bandcamp.com/">
+            <?php echo $cassette[0]['code']; ?> // <?php foreach($cassette as $value){ echo $value['nom']." "; } ?> // <?php echo $cassette[0]['titre']; ?>
+        </a>
+    </iframe>
+    <br/><br/>
 <?php } ?>
-<!------------------------------------------------------------------------------lien soundcloud------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-<?php if($cassette[0]['lien_soundcloud']){ ?>
+<!------------------------------------------------------------------------------lien soundcloud (si il existe et que le lien bandcamp n'existe pas)-------------------------------------------------------------------------------------------------------------->
+<?php if($cassette[0]['lien_soundcloud'] && !$cassette[0]['lien_bandcamp']){ ?>
     <iframe width="100%" height="166" scrolling="no" frameborder="no" src="<?php echo $cassette[0]['lien_soundcloud']; ?>"></iframe>
     <br/><br/>
 <?php } ?>
